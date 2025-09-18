@@ -1,0 +1,43 @@
+INSERT INTO Companies (
+  company_name,
+  active
+) VALUES (
+  'Membrane Labs',
+  1
+);
+
+INSERT INTO Products (
+  product_name,
+  company_id,
+  description,
+  price,
+  active
+) VALUES (
+  'Super Toast',
+  1,
+  'Toast that makes you super.',
+  2.99,
+  1
+);
+
+INSERT INTO Categories (
+  category_name
+) VALUES (
+  'Food'
+);
+
+INSERT INTO ProductsCategoriesXref (
+  product_id,
+  category_id
+) VALUES (
+  1,
+  1
+);
+
+INSERT INTO Warranties (
+  warranty_months,
+  product_id
+) VALUES (
+  88,
+  1
+);

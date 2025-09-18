@@ -1,0 +1,36 @@
+CREATE TABLE IF NOT EXISTS Companies (
+  company_id SERIAL PRIMARY KEY,
+  company_name VARCHAR NOT NULL UNIQUE,
+  active BOOLEAN
+);
+
+CREATE TABLE IF NOT EXISTS Products (
+  product_id SERIAL PRIMARY KEY,
+  product_name NOT NULL UNIQUE,
+  company_id INTEGER,
+  description VARCHAR,
+  price DECIMAL,
+  active BOOLEAN,
+  FOREIGN KEY (company_id) REFERENCES Companies(company_id)
+);
+
+CREATE TABLE IF NOT EXISTS Categories (
+  category_id SERIAL PRIMARY KEY,
+  category_name VARCHAR NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS ProductsCategoriesXref (
+  product_id INTEGER,
+  category_id INTEGER,
+  PRIMARY KEY (product_id, category_id)
+  FOREIGN KEY (product_id) REFERENCES Products(product_id),
+  FOREIGN KEY (category_id) REFERENCES Categories(category_id)
+);
+
+CREATE TABLE IF NOT EXISTS Warranties (
+  warranty_id SERIAL PRIMARY KEY,
+  warranty_months INTEGER NOT NULL,
+  product_id INTEGER,
+  FOREIGN KEY (product_id) REFERENCES Products(product_id)
+);
+

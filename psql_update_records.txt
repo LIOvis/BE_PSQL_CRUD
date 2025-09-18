@@ -1,0 +1,19 @@
+Update Companies
+SET company_id = 8
+WHERE company_id = 1;
+
+Update Products
+SET product_name = 'Membrane Labs' SUPER TOAST', company_id = 8 price = 1.99
+WHERE product_id = 1;
+
+Update Categories
+SET category_name = 'Health Foods', category_id = 8
+WHERE category_id = 1;
+
+Update ProductsCategoriesXref
+SET category_id = 8
+WHERE product_id = 1 AND category_id = 1;
+
+Update Warranties
+SET warranty_months = 888
+WHERE warranty_id = 1;

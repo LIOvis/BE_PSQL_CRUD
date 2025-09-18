@@ -1,0 +1,35 @@
+SELECT * FROM Companies;
+
+SELECT * FROM Categories;
+
+SELECT * FROM Products;
+
+SELECT * FROM Warranties;
+
+SELECT * FROM Products
+WHERE active = 1;
+
+SELECT * FROM Products
+WHERE company_id = 1;
+
+SELECT * FROM Companies
+WHERE company_id = 1 ;
+
+SELECT * FROM Warranties
+WHERE warranty_id = 1 ;
+
+SELECT c.category_id, c.category_name, p.product_id, p.product_name, p.price
+FROM Products p
+JOIN ProductsCategoriesXref x ON p.product_id = x.product_id
+JOIN Categories c ON c.category_id = x.category_id
+WHERE category_id = 1
+GROUP BY product_id;
+
+SELECT  p.product_id, p.product_name, p.price, w.warranty_id, w.warranty_months, c.category_id, c.category_name
+FROM Products p
+JOIN Warranties w ON p.product_id = w.product_id
+JOIN ProductsCategoriesXref x ON p.product_id = x.product_id
+JOIN Categories c ON x.category_id = c.category_id
+WHERE product_id = 1
+GROUP BY category_id, warranty_id;
+

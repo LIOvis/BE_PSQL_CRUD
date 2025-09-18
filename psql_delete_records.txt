@@ -1,0 +1,12 @@
+DELETE FROM Products WHERE company_id = 1;
+DELETE FROM Companies WHERE company_id = 1;
+
+DELETE FROM Warranties WHERE product_id = 1;
+DELETE FROM ProductsCategoriesXref WHERE product_id = 1;
+DELETE FROM Products WHERE product_id = 1;
+
+DELETE FROM ProductsCategoriesXref WHERE category_id = 1;
+DELETE FROM Categories WHERE category_id = 1;
+
+DELETE FROM Warranties
+WHERE warranty_id = 1;
